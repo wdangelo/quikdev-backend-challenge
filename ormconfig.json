@@ -1,0 +1,12 @@
+{
+    "type": "postgres",
+    "host": "localhost",
+    "username": "quickdev",
+    "password": "quickdev",
+    "database": "quickdev",
+    "migrations": ["./src/database/migrations/*.ts"],
+    "entities": ["./src/modules/**/*.ts"],
+    "cli": {
+        "migrationsDir": "./src/database/migrations"
+    }
+}
