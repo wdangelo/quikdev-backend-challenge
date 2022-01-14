@@ -26,14 +26,14 @@ async execute({
     const userRepository = getCustomRepository(UserRepositories)
 
     const user = userRepository.create({ 
-        name, 
-        username, 
-        birthdate, 
-        address, 
-        addresNumber, 
-        primaryPhone, 
-        description
-    })
+    name, 
+    username, 
+    birthdate, 
+    address, 
+    addresNumber, 
+    primaryPhone, 
+    description
+})
 
     await userRepository.save(user)
 

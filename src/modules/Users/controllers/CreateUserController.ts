@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { CreateUserService } from "../services/CreateUserService";
+import { isPhone, formatToPhone } from "brazilian-values";
 
 class CreateUSerController {
     async handle(request: Request, response:Response) {
@@ -12,22 +13,19 @@ class CreateUSerController {
             primaryPhone, 
             description
         } = request.body
-        console.log(name, 
-            username, 
-            birthdate, 
-            address, 
-            addresNumber, 
-            primaryPhone, 
-            description)
+
         const createUserService = new CreateUserService()
 
+        if(!isPhone(primaryPhone)) {
+            throw new Error('incorrect phone format!')
+        }
         const user = createUserService.execute({
             name, 
             username, 
             birthdate, 
             address, 
             addresNumber, 
-            primaryPhone, 
+            primaryPhone: formatToPhone(primaryPhone), 
             description
         })
 
