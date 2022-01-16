@@ -23,6 +23,7 @@ async execute({
     addresNumber, 
     primaryPhone, 
     description }: IUserRequest) {
+        
     const userRepository = getCustomRepository(UserRepositories)
 
     const user = userRepository.create({ 
