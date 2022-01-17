@@ -7,7 +7,7 @@ class ListUsersController {
 
         const users = await listUserService.execute()
 
-        return response.json(users)
+        return response.status(200).json(users)
     }
 }
 

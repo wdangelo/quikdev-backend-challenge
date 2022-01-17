@@ -1,0 +1,183 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API QuickDev Documentation",
+        "description:": "Esta Documentação oferece suporte para consumo da API Quickdev",
+        "version": "1.0.0",
+        "contact": {
+            "email": "wdangelo1983@gmail.com"
+        }
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3333"
+        }
+    ],
+    
+    "paths": {
+        "/users": {
+            "post": {
+                "tags": ["Users"],
+                "summary": "Criação de Usuário",
+                "description": "Rota de criação de novos usuários, esta rota exige que o campo telefone siga o seguinte padrão (xx) xxxx-xxxx, caso contrário a rota retorna um erro de exceção ",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "propriets": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "birthdate": {
+                                        "type": "string"
+                                    },
+                                    "address": {
+                                        "type": "string"
+                                    },
+                                    "addresNumber": {
+                                        "type": "string"
+                                    },
+                                    "primaryPhone": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "name": "Nome completo teste",
+                                    "username": "nome de usuário teste",
+                                    "birthdate": "xx/xx/xxxx",
+                                    "address": "avenida teste",
+                                    "addresNumber": "000",
+                                    "primaryPhone": "(xx) xxxx-xxxx",
+                                    "description": "descrição de usuário teste"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "500": {
+                        "description": "incorrect phone format!"
+                    }
+                }
+            },
+            "get": {
+                "tags":["Users"],
+                "summary": "Lista todos usuários.",
+                "description": "Esta rota lista todos usuários cadastrados.",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "username": {
+                                                "type": "string"
+                                            },
+                                            "birthdate": {
+                                                "type": "string"
+                                            },
+                                            "address": {
+                                                "type": "string"
+                                            },
+                                            "addresNumber": {
+                                                "type": "string"
+                                            },
+                                            "primaryPhone": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users/{id}": {
+            "put": {
+                "tags": ["Users"],
+                "summary": "Alteração de um usuário",
+                "description": "Rota para alteração de um usuário ou de um campo do usuário. A alteração é efetuada a partir do ID do usuário do tipo uuid v4.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID uuid do usuário a ser alterado.",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "propriets": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "birthdate": {
+                                        "type": "string"
+                                    },
+                                    "address": {
+                                        "type": "string"
+                                    },
+                                    "addresNumber": {
+                                        "type": "string"
+                                    },
+                                    "primaryPhone": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "name": "Nome completo update",
+                                    "username": "nome de usuário update",
+                                    "birthdate": "01/01/2021",
+                                    "address": "avenida teste update",
+                                    "addresNumber": "000",
+                                    "primaryPhone": "(11) 1111-1111",
+                                    "description": "descrição de usuário update"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "500": {
+                        "description": "incorrect phone format!"
+                    }
+                }
+            }
+        }
+    }
+
+}

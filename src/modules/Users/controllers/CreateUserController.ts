@@ -17,7 +17,8 @@ class CreateUSerController {
         const createUserService = new CreateUserService()
 
         if(!isPhone(primaryPhone)) {
-            throw new Error('incorrect phone format!')
+
+            return new Error('incorrect phone format!')
         }
         const user = createUserService.execute({
             name, 
@@ -29,7 +30,7 @@ class CreateUSerController {
             description
         })
 
-        return response.json(user)
+        return response.status(201).json(user)
     }
 }
 

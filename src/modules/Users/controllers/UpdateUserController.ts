@@ -38,7 +38,7 @@ class UpdateUserController {
             return response.status(400).json(user.message)
         }
 
-        return response.json(user)
+        return response.status(200).json(user)
     }
 }
 
