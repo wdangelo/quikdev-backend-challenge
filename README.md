@@ -4,7 +4,7 @@
 
 
 ### Sobre
-    - A APi foi desenvolvida em nodejs v14.17.3
+   - A APi foi desenvolvida em nodejs v14.17.3
 
 ## Instalação e Requisitos
  - Ter nodejs instalado com a versão 14.17.3 e npm versão 7.20.5
